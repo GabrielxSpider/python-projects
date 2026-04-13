@@ -1,16 +1,23 @@
 from utils import hash_password
 from data_manager import save_data
+from models import User
 
 def login(data):
     username = input("Username: ")
     password = input("Password: ")
 
     if username in data["users"]:
-        user = data["users"][username]
+        user_data = data["users"][username]
 
-        if user["password"] == hash_password(password):
+        if user_data["password"] == hash_password(password):
             print(f"Welcome, {username}")
-            return user
+
+            return User(
+                username,
+                user_data["password"],
+                user_data["balance"],
+                user_data["history"]
+            )
 
     print("Invalid username or password.")
     return None
