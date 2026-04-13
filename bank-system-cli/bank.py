@@ -6,7 +6,7 @@ def bank_menu(user, data):
         print("1 - Check balance")
         print("2 - Deposit")
         print("3 - Withdraw")
-        print("4 - TransactionHistory")
+        print("4 - Transaction History")
         print("5 - Logout")
 
         option = input("Choose: ")
